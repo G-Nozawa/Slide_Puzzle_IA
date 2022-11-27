@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Projeto de LFTC</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body class="container">
+    <div id="puzzleSolver">
+        <p>Entrada personalizada</p>
+        <div id="divInput">
+            <table id="inputTable" cellspacing="0">
+                <tr>
+                    <th>
+                        <input type="text" class="inputMatrix" id="input1" placeholder="1"></input>
+                    </th>
+                    <th>
+                        <input type="text" class="inputMatrix" id="input2" placeholder="2"></input>
+                    </th>
+                    <th>
+                        <input type="text" class="inputMatrix" id="input3" placeholder="3"></input>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="text" class="inputMatrix" id="input4" placeholder="4"></input>
+                    </th>
+                    <th>
+                        <input type="text" class="inputMatrix" id="input5" placeholder="5"></input>
+                    </th>
+                    <th>
+                        <input type="text" class="inputMatrix" id="input6" placeholder="6"></input>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <input type="text" class="inputMatrix" id="input7" placeholder="7"></input>
+                    </th>
+                    <th>
+                        <input type="text" class="inputMatrix" id="input8" placeholder="8"></input>
+                    </th>
+                    <th>
+                        <input type="text" class="inputMatrix" id="input9" placeholder="9"></input>
+                    </th>
+                </tr>
+            </table>
+        </div>
+        <button onclick="insertCustomTable()">Inserir tabela</button>
+        <button onclick="resetPuzzle()">Resetar tabela</button>
+        <div id="divPuzzle">
+            <p>Tabuleiro problema</p>
+            <table id="puzzleTable" cellspacing="0">
+                <tr>
+                    <th>1</th><th>2</th><th>3</th>
+                </tr>
+                <tr>
+                    <th>4</th><th>5</th><th>6</th>
+                </tr>
+                <tr>
+                    <th>7</th><th>8</th><th>9</th>
+                </tr>
+            </table>
+        </div>
+        <p>Embaralhar tabuleiro</p>
+        <input type="text" class="inputMatrix" id="inputScramble" placeholder="N.movimentos"></input>
+        <button onclick="scrambleBoard()">Embaralhar</button>
+        <p>Métodos</p>
+        <button onclick="solveOneLayer()">1 Nível</button>
+        <button onclick="solveTwoLayers()">2 Níveis</button>
+        <button onclick="solveMyMethod()">Heurística pessoal</button>
+        
+        <p>Solução</p>
+        <div id="divSolution">
+        </div>
+        <div id="NumberMoves"></div>
+    </div>
+</body>
+</html>

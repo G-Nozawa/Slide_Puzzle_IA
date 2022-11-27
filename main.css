@@ -1,0 +1,15 @@
+*{
+	font-family: sans-serif;
+}
+
+body{
+	margin: 10px;
+	background-color: #ccc;
+}
+
+#puzzleSolver{
+    padding: 2%;
+	text-align: left;
+	background-color: #FFF;
+	border-radius: 10px;
+}
