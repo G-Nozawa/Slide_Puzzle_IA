@@ -11,24 +11,6 @@ function isInList(board){
     return false;
 }
 
-//create a table with the values of the board
-function tableCreate(num, board) {
-    let table = document.createElement('table');
-    table.id = 'solutionTable${num.toString()}';
-    table.className = "solutionTbl";
-    table.style.border = '1px solid black';
-    for (let i = 0; i < 3; i++) {
-      let tr = table.insertRow(-1);
-      for (let j = 0; j < 3; j++) {
-        let td = tr.insertCell(-1);
-        td.innerHTML = board[i*3+j].toString();
-        td.appendChild(document.createTextNode(board[i*3+j].toString()));
-        td.style.border = '1px solid black';
-      }
-    }
-    body.appendChild(table);
-}
-
 //reset the puzzle to the solved position
 function resetPuzzle(){
     let board = [1,2,3,4,5,6,7,8,9];
@@ -177,11 +159,31 @@ function getValues(name) {
     return board;
 }
 
+//create a table with the values of the board
+function tableCreate(num) {
+    let div = document.getElementById("divSolution");
+    let table = document.createElement('table');
+    table.id = "solutionTable" + num.toString();
+    table.className = "solutionTbl";
+    table.style.border = '1px solid black';
+    for (let i = 0; i < 3; i++) {
+      let tr = table.insertRow(-1);
+      for (let j = 0; j < 3; j++) {
+        let td = tr.insertCell(-1);
+        td.style.border = '1px solid black';
+      }
+    }
+    div.appendChild(table);
+}
+
 //display the current values inside the board
 function displayBoard(board, name){
     var table = document.getElementById(name);
+    console.log(table)
     if(table == null){
-        var table = tableCreate(1);
+        var table = tableCreate(name);
+        table = document.getElementById("solutionTable" + name.toString());
+        console.log("solutionTable" + name.toString());
     }
     for (var r = 0, n = table.rows.length; r < n; r++) {
         for (var c = 0, m = table.rows[r].cells.length; c < m; c++) {
@@ -236,7 +238,7 @@ function solveOneLayer(){
         board = possibleBoards[best];
         stateList.push(board);
         moveCount++;
-        //displayBoard(board, moveCount);
+        displayBoard(board, moveCount);
     }
     num = document.getElementById("NumberMoves");
     num.innerHTML = "Número de movimentos: " + moveCount.toString();
@@ -271,6 +273,7 @@ function solveTwoLayers(){
         board = possibleBoardsFirstLayer[best];
         stateList.push(board);
         moveCount++;
+        displayBoard(board, moveCount);
     }
     num = document.getElementById("NumberMoves");
     num.innerHTML = "Número de movimentos: "+ moveCount.toString();
@@ -313,7 +316,7 @@ function solveMyMethod(){
         board = possibleBoards[best];
         stateList.push(board);
         moveCount++;
-        //displayBoard(board, moveCount);
+        displayBoard(board, moveCount);
     }
     num = document.getElementById("NumberMoves");
     num.innerHTML = "Número de movimentos: " + moveCount.toString();
